@@ -17,6 +17,7 @@ Run: `install_mongodb_osx.sh`
 ## Install gems from Gemfile and dependencies
 Run: `gem install bundler`
 Run: `bundle install`
+Run: `geminstaller`
 
 ## Starting the backend API server
 Run: `bundle exec ruby server.rb`
