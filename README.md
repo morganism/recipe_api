@@ -62,6 +62,9 @@ Finally, here are some sample recipes to populate the database. Just run each co
 ## POSTing new recipes
 Run: `curl_command_post_cherry_pie.sh`
 
+## PATCHing recipes / UPDATE
+Run: `curl_command_patch_cherry_pie.sh`
+
 
 ## Deleting Recipes
 We'll use **curl** for this to access the Recipe API backend

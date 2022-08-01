@@ -1,5 +1,4 @@
-# server.rb
-require 'sinatra'
+# server.rb require 'sinatra'
 require "sinatra/namespace"
 require 'mongoid'
 # DB Setup
