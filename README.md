@@ -14,6 +14,9 @@ This assumes an OSX environment so I'm using **brew** from the **Homebrew** : se
 
 Run: `install_mongodb_osx.sh`
 
+## Stopping and starting MongoDB
+Run `mongodbctl {start|stop}`
+
 ## Install gems from Gemfile and dependencies
 Run: `gem install bundler`
 Run: `bundle install`
