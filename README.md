@@ -72,3 +72,7 @@ Run: `curl_command_post_cherry_pie.sh`
 We'll use **curl** for this to access the Recipe API backend
 
  - `curl -i -X DELETE -H "Content-Type: application/json" http://localhost:4567/api/v1/recipes/Chicken%20Soup`
+
+## Screenshots directory
+Displays examples of list all recipes, search by author and regex search by title
+`cd Screenshots`
