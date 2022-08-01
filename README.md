@@ -33,7 +33,7 @@ We'll use **irb** so run this in a terminal session:
     $irb
 #
 Once you are inside, run the command require './server' to load the application inside irb:
-#
+
     irb(main):001:0> `require './server'`
 => true
 #
