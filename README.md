@@ -77,4 +77,4 @@ We'll use **curl** for this to access the Recipe API backend
 Displays examples of list all recipes, search by author and regex search by title
 `cd Screenshots`
 
-![Search Title Pie](https://github.com/morganism/recipe_api/tree/master/Screenshots#:~:text=Screenshot%202022%2D08%2D01%20at%2018.05.54.png)
+![Search Title Pie](https://github.com/morganism/recipe_api/blob/master/Screenshots/Screenshot%202022-08-01%20at%2018.05.54.png)
