@@ -58,3 +58,9 @@ Finally, here are some sample recipes to populate the database. Just run each co
 
 - To search for a particular author: http://localhost:4567/recipes?author=Morgan
 - To perform a regex search on **title**: http://localhost:4567/api/v1/recipes?title=Soup
+
+
+## Deleting Recipes
+We'll use **curl** for this to access the Recipe API backend
+
+ - `curl -i -X DELETE -H "Content-Type: application/json" http://localhost:4567/api/v1/recipes/Chicken%20Soup`

@@ -104,6 +104,12 @@ namespace '/api/v1' do
     recipes.map { |recipe| RecipeSerializer.new(recipe) }.to_json
   end
 
+  delete '/recipes/:title' do |title|
+    recipe = Recipe.where(title: title).first
+    recipe.destroy if recipe
+    status 204
+  end
+
   #get '/recipes' do
     #Recipe.all.to_json
   #end
