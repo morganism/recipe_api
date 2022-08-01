@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [[ "$1" == "" ]]; then
+  echo "Usage $0 'stop' | 'start'"
+  exit 1
+elif [[ "$1" == "start" ]]; then
+  brew services start mongodb-community@6.0
+elif [[ "$1" == "stop" ]]; then
+  brew services stop mongodb-community@6.0
+else
+  echo "Usage $0 'stop' | 'start'"
+  exit 1
+fi
