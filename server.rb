@@ -67,16 +67,6 @@ end
     end
   end
 
-  post '/recipes ' do
-    recipe = Recipe.new(json_params)
-    if recipe.save
-      response.headers['Location'] = "#{base_url}/api/v1/recipes/#{recipe.id}"
-      status 201
-    else
-      status 422
-      body RecipeSerializer.new(recipe).to_json
-    end
-  end
 
 get '/recipes' do
   recipes = Recipe.all
@@ -102,6 +92,17 @@ namespace '/api/v1' do
 
     # We just change this from recipe.to_json to the following
     recipes.map { |recipe| RecipeSerializer.new(recipe) }.to_json
+  end
+
+  post '/recipes' do
+    recipe = Recipe.new(json_params)
+    if recipe.save
+      response.headers['Location'] = "#{base_url}/api/v1/recipes/#{recipe.title}"
+      status 201
+    else
+      status 422
+      body RecipeSerializer.new(recipe).to_json
+    end
   end
 
   delete '/recipes/:title' do |title|
