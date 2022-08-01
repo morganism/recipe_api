@@ -34,11 +34,11 @@ We'll use **irb** so run this in a terminal session:
 #
 Once you are inside, run the command require './server' to load the application inside irb:
 #
-    irb(main):001:0> require './server'
+    `irb(main):001:0> require './server'`
 => true
 #
 Then run this one to create the indexes for the Recipe model:
-    irb(main):001:0>Recipe.create_indexes
+    irb(main):001:0> `Recipe.create_indexes`
 => true
 #
 Finally, here are some sample recipes to populate the database. Just run each command in `irb` to get them persisted inside the MongoDB database.
