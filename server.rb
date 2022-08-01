@@ -53,6 +53,31 @@ get '/ ' do
   'Welcome to Recipe!'
 end
 
+  helpers do
+    def base_url
+      @base_url ||= "#{request.env['rack.url_scheme']}://{request.env['HTTP_HOST']}"
+    end
+
+    def json_params
+      begin
+        JSON.parse(request.body.read)
+      rescue
+        halt 400, { message:'Invalid JSON' }.to_json
+      end
+    end
+  end
+
+  post '/recipes ' do
+    recipe = Recipe.new(json_params)
+    if recipe.save
+      response.headers['Location'] = "#{base_url}/api/v1/recipes/#{recipe.id}"
+      status 201
+    else
+      status 422
+      body RecipeSerializer.new(recipe).to_json
+    end
+  end
+
 get '/recipes' do
   recipes = Recipe.all
 
