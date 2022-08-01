@@ -34,7 +34,7 @@ We'll use **irb** so run this in a terminal session:
 #
 Once you are inside, run the command require './server' to load the application inside irb:
 #
-    `irb(main):001:0> require './server'`
+    irb(main):001:0> `require './server'`
 => true
 #
 Then run this one to create the indexes for the Recipe model:
