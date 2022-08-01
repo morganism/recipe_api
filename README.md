@@ -59,6 +59,9 @@ Finally, here are some sample recipes to populate the database. Just run each co
 - To search for a particular author: http://localhost:4567/recipes?author=Morgan
 - To perform a regex search on **title**: http://localhost:4567/api/v1/recipes?title=Soup
 
+## POSTing new recipes
+Run: `curl_command_post_cherry_pie.sh`
+
 
 ## Deleting Recipes
 We'll use **curl** for this to access the Recipe API backend
