@@ -76,3 +76,5 @@ We'll use **curl** for this to access the Recipe API backend
 ## Screenshots directory
 Displays examples of list all recipes, search by author and regex search by title
 `cd Screenshots`
+
+![image info](./Screenshots/Screenshot 2022-08-01 at 18.05.54.png)
