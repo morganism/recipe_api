@@ -105,6 +105,17 @@ namespace '/api/v1' do
     end
   end
 
+  patch '/recipes/:title ' do |title|
+    recipe = Recipe.where(title: title).first
+    halt(404, { message:'Recipe Not Found'}.to_json) unless recipe
+    if recipe.update_attributes(json_params)
+      RecipeSerializer.new(recipe).to_json
+    else
+      status 422
+      body RecipeSerializer.new(recipe).to_json
+    end
+  end
+
   delete '/recipes/:title' do |title|
     recipe = Recipe.where(title: title).first
     recipe.destroy if recipe
