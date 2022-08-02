@@ -53,21 +53,6 @@ get '/ ' do
   'Welcome to Recipe!'
 end
 
-  helpers do
-    def base_url
-      @base_url ||= "#{request.env['rack.url_scheme']}://{request.env['HTTP_HOST']}"
-    end
-
-    def json_params
-      begin
-        JSON.parse(request.body.read)
-      rescue
-        halt 400, { message:'Invalid JSON' }.to_json
-      end
-    end
-  end
-
-
 get '/recipes' do
   recipes = Recipe.all
 
@@ -82,6 +67,39 @@ end
 namespace '/api/v1' do
   before do
     content_type 'application/json'
+  end
+
+  helpers do
+    def base_url
+      @base_url ||= "#{request.env['rack.url_scheme']}://{request.env['HTTP_HOST']}"
+    end
+
+    def json_params
+      begin
+        JSON.parse(request.body.read)
+      rescue
+        halt 400, { message:'Invalid JSON' }.to_json
+      end
+    end
+  end
+
+  # Using a method to access the recipe can save us
+  # from a lot of repetitions and can be used
+  # anywhere in the endpoints during the same
+  # request
+  def recipe
+    @recipe ||= Recipe.where(title: params[:title]).first
+  end
+
+  # Since we used this code in both show and update
+  # extracting it to a method make it easier and
+  # less redundant
+  def halt_if_not_found!
+    halt(404, { message:'Recipe Not Found'}.to_json) unless recipe
+  end
+
+  def serialize(recipe)
+    RecipeSerializer.new(recipe).to_json
   end
 
   get '/recipes' do
@@ -105,6 +123,16 @@ namespace '/api/v1' do
     end
   end
 
+  # Just like for the create endpoint,
+  # we switched to a guard clause style to
+  # check if the book is not found or if
+  # the data is not valid
+  patch '/recipes/:title' do |title|
+    halt_if_not_found!
+    halt 422, serialize(recipe) unless recipe.update_attributes(json_params)
+    serialize(recipe)
+  end
+
   patch '/recipes/:title ' do |title|
     recipe = Recipe.where(title: title).first
     halt(404, { message:'Recipe Not Found'}.to_json) unless recipe
@@ -121,9 +149,4 @@ namespace '/api/v1' do
     recipe.destroy if recipe
     status 204
   end
-
-  #get '/recipes' do
-    #Recipe.all.to_json
-  #end
-
 end

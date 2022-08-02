@@ -86,3 +86,8 @@ Displays examples of list all recipes, search by author and regex search by titl
 ### List All Recipes
 ![List All Recipes](https://github.com/morganism/recipe_api/blob/master/Screenshots/Screenshot%202022-08-01%20at%2018.06.19.png)
 
+### Search title=Cherry after update/PATCH
+![Search Title Cherry](https://github.com/morganism/recipe_api/blob/master/Screenshots/Screenshot%202022-08-02%20at%2010.43.43.png)
+
+### Search title=Pie after update/PATCH
+![Search Title Pie](https://github.com/morganism/recipe_api/blob/master/Screenshots/Screenshot%202022-08-02%20at%2010.46.00.png)
