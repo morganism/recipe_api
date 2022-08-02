@@ -76,7 +76,6 @@ or
 
 
 ## Deleting Recipes
-We'll use **curl** for this to access the Recipe API backend
 Run: `curl_command_delete_Chicken_Soup.rb`
 or
  - `curl -i -X DELETE -H "Content-Type: application/json" http://localhost:4567/api/v1/recipes/Chicken%20Soup`
