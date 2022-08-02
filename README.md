@@ -4,8 +4,8 @@
 ```mermaid
 graph LR
 A[Install Mongodb] -- Bundle Install --> B((bundle exec ruby server.rb))
-
-B --> D{http://127.0.0.1:4567/recipes?author=Morgan}
+B --> C((Run CREATE commands to populate MongoDB))
+C --> D((http://127.0.0.1:4567/recipes?author=Morgan))
 
 ```
 ## Installing MongoDB
