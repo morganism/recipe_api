@@ -66,11 +66,19 @@ Finally, here are some sample recipes to populate the database. Just run each co
 
 ## POSTing new recipes
 Run: `curl_command_post_cherry_pie.sh`
+or
+ - `curl -i -X POST -H "Content-Type: application/json" -d'{"title":"Cherry Pie", "author":"Morgan", "process":"Add all ingredients", "ingredients":"Flour,water,salt,cherries", "description":"A cherry pie recipe"}' http://localhost:4567/api/v1/recipes`
+
+## PATCHing or UPDATE recipe
+Run: ` curl_command_patch_cherry_pie.sh` 
+or
+ - `curl -i -X PATCH -H "Content-Type: application/json" -d '{"title":"Cherry Pie", "description":"A cherry pie recipe that has been updated via PATCH"}' http://localhost:4567/api/v1/recipes/Cherry%20Pie`
 
 
 ## Deleting Recipes
 We'll use **curl** for this to access the Recipe API backend
-
+Run: `curl_command_delete_Chicken_Soup.rb`
+or
  - `curl -i -X DELETE -H "Content-Type: application/json" http://localhost:4567/api/v1/recipes/Chicken%20Soup`
 
 ## Screenshots directory
